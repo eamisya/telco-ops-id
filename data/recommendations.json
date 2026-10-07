@@ -1,0 +1,139 @@
+[
+  {
+    "recommendation_id": "REC-001",
+    "incident_id": "INC-2026-0147",
+    "situation": "Packet-core latency increased significantly between 14:20–15:07.",
+    "assessment": "Probable resource constraint in UPF processing layer.",
+    "actions": [
+      "Validate UPF resource utilization.",
+      "Review traffic distribution.",
+      "Check session-processing anomalies.",
+      "Consider traffic redistribution if degradation continues."
+    ],
+    "risk_level": "High",
+    "approval_required": true,
+    "ai_reasoning": "High-confidence correlation between UPF resource pressure (+23% CPU) and service latency degradation (4.7x baseline). Packet loss (+1.1%) indicates buffer overflow at the data plane layer."
+  },
+  {
+    "recommendation_id": "REC-002",
+    "incident_id": "INC-2026-0149",
+    "situation": "Massive surge in Attach Reject messages at MME-02.",
+    "assessment": "Control plane exhaustion caused by a synchronized reconnect storm from rogue IoT devices.",
+    "actions": [
+      "Apply localized API rate limiting on MME-02.",
+      "Enable EAB (Extended Access Barring) for low-priority IoT classes.",
+      "Spin up standby MME instance in Datacenter-East."
+    ],
+    "risk_level": "Medium",
+    "approval_required": true,
+    "ai_reasoning": "CPU utilization at 99.8% perfectly correlates with the 34.5% session failure rate, while data plane metrics remain normal, explicitly pointing to a Control Plane signalling flood."
+  },
+  {
+    "recommendation_id": "REC-003",
+    "incident_id": "INC-2026-0150",
+    "situation": "Complete authentication failure across subscriber database segment HSS-01.",
+    "assessment": "SCTP association failure on primary and secondary S6a interfaces.",
+    "actions": [
+      "Force-restart SCTP daemon on HSS-01.",
+      "Reroute authentication traffic to HSS-02 (Geo-redundant standby).",
+      "Dispatch field engineer to inspect physical link integrity."
+    ],
+    "risk_level": "Critical",
+    "approval_required": true,
+    "ai_reasoning": "100% session failure combined with total lack of traffic on S6a confirms an interface-level outage rather than a capacity issue."
+  },
+  {
+    "recommendation_id": "REC-004",
+    "incident_id": "INC-2026-0151",
+    "situation": "12.4% of VoLTE sessions are receiving SIP 503 errors.",
+    "assessment": "P-CSCF internal queue backup delaying SIP Invite processing.",
+    "actions": [
+      "Purge stalled SIP dialogs in IMS-CSCF-01 queue.",
+      "Temporarily shift 20% of new VoLTE registrations to secondary CSCF.",
+      "Analyze SIP trace logs for malformed INVITE headers."
+    ],
+    "risk_level": "Medium",
+    "approval_required": false,
+    "ai_reasoning": "Latency of 250ms on SIP signaling indicates severe CPU queuing (currently at 88%), resulting in 503 Server Unavailable timeouts for subscribers."
+  },
+  {
+    "recommendation_id": "REC-005",
+    "incident_id": "INC-2026-0152",
+    "situation": "Steady increase in GTP-C Tunnel Setup failures at PGW-01.",
+    "assessment": "IP address pool exhaustion for a specific APN.",
+    "actions": [
+      "Expand IP address pool for affected APN on PGW-01.",
+      "Clear dormant PDP contexts to free up immediate IP assignments."
+    ],
+    "risk_level": "Low",
+    "approval_required": false,
+    "ai_reasoning": "CPU and Latency are relatively normal, but a 6.8% session failure rate in PGW tunnel establishment strongly indicates a logical resource limit, such as IP pool exhaustion."
+  },
+  {
+    "recommendation_id": "REC-006",
+    "incident_id": "INC-2026-0153",
+    "situation": "Massive 45% packet loss and 85% session drop across core routers.",
+    "assessment": "Hardware fault on 100G line card triggering BGP reconvergence loop.",
+    "actions": [
+      "Administratively shutdown flapping interface on Core-RTR-02.",
+      "Force BGP traffic to alternate route via Core-RTR-03.",
+      "Initiate hardware replacement ticket for line card."
+    ],
+    "risk_level": "High",
+    "approval_required": true,
+    "ai_reasoning": "Sudden 45% packet loss on a core transport node without matching CPU exhaustion confirms a physical/Layer 2 fault (flapping) driving BGP instability."
+  },
+  {
+    "recommendation_id": "REC-007",
+    "incident_id": "INC-2026-0154",
+    "situation": "DNS resolution latency spiking to 3.2 seconds.",
+    "assessment": "DDoS amplification attempt saturating DNS query buffers.",
+    "actions": [
+      "Activate scrubbing center redirection for port 53 traffic.",
+      "Apply strict rate limits to anomalous IP ranges.",
+      "Scale up DNS-PRI-01 instances horizontally."
+    ],
+    "risk_level": "Medium",
+    "approval_required": true,
+    "ai_reasoning": "Latency multiplier of 71x baseline on DNS queries with 100% CPU points directly to a volumetric attack overwhelming the application layer."
+  },
+  {
+    "recommendation_id": "REC-008",
+    "incident_id": "INC-2026-0155",
+    "situation": "High Bit Error Rate (BER) on Microwave Link 88.",
+    "assessment": "Severe weather (heavy rainfall) causing multipath fading and adaptive modulation drop.",
+    "actions": [
+      "Reroute priority traffic over secondary fiber path.",
+      "Allow adaptive modulation to lower QAM until weather clears."
+    ],
+    "risk_level": "Low",
+    "approval_required": false,
+    "ai_reasoning": "Packet loss of 8.5% on an RF transport link with normal CPU metrics indicates environmental RF degradation (fade)."
+  },
+  {
+    "recommendation_id": "REC-009",
+    "incident_id": "INC-2026-0156",
+    "situation": "Total loss of communication with RNC-East-01.",
+    "assessment": "Total loss of power to aggregation site (Dual PDU failure).",
+    "actions": [
+      "Dispatch emergency generator / facilities team immediately.",
+      "Adjust antenna tilt on neighboring RNCs to provide coverage overlap."
+    ],
+    "risk_level": "Critical",
+    "approval_required": true,
+    "ai_reasoning": "Instantaneous transition to 100% loss and 0% CPU with no degradation curve is the mathematical signature of a complete physical power/link cut."
+  },
+  {
+    "recommendation_id": "REC-010",
+    "incident_id": "INC-2026-0157",
+    "situation": "High rate of MQTT keepalive drops for Enterprise IoT.",
+    "assessment": "NAT translation table overflow dropping long-lived MQTT connections.",
+    "actions": [
+      "Increase NAT state table size on IoT-SGW-04.",
+      "Decrease TCP keepalive timeouts to flush orphaned sessions."
+    ],
+    "risk_level": "Medium",
+    "approval_required": true,
+    "ai_reasoning": "8.5% session drop isolated exclusively to the IoT service gateway strongly implies state-table exhaustion for thousands of idle connections."
+  }
+]

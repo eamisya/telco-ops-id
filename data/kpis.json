@@ -1,0 +1,42 @@
+[
+  {
+    "kpi_id": "KPI-LAT-001",
+    "name": "Latency",
+    "element_id": "UPF-03",
+    "timestamp": "2026-10-06T14:30:00Z",
+    "current_value": 487,
+    "baseline_value": 103,
+    "unit": "ms",
+    "status": "Degraded"
+  },
+  {
+    "kpi_id": "KPI-PL-001",
+    "name": "Packet Loss",
+    "element_id": "UPF-03",
+    "timestamp": "2026-10-06T14:30:00Z",
+    "current_value": 1.8,
+    "baseline_value": 0.1,
+    "unit": "%",
+    "status": "Warning"
+  },
+  {
+    "kpi_id": "KPI-CPU-001",
+    "name": "Core Utilization",
+    "element_id": "UPF-03",
+    "timestamp": "2026-10-06T14:30:00Z",
+    "current_value": 92.4,
+    "baseline_value": 65.0,
+    "unit": "%",
+    "status": "Warning"
+  },
+  {
+    "kpi_id": "KPI-SESS-001",
+    "name": "Session Success",
+    "element_id": "UPF-03",
+    "timestamp": "2026-10-06T14:30:00Z",
+    "current_value": 97.6,
+    "baseline_value": 99.9,
+    "unit": "%",
+    "status": "Healthy"
+  }
+]

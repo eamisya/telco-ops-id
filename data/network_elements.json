@@ -1,0 +1,26 @@
+[
+  {
+    "element_id": "UPF-03",
+    "domain": "Packet Core",
+    "type": "User Plane Function",
+    "vendor": "Ericsson",
+    "status": "Degraded",
+    "location": "Datacenter-East"
+  },
+  {
+    "element_id": "PGW-01",
+    "domain": "Packet Core",
+    "type": "PDN Gateway",
+    "vendor": "Nokia",
+    "status": "Healthy",
+    "location": "Datacenter-West"
+  },
+  {
+    "element_id": "MME-02",
+    "domain": "Control Core",
+    "type": "Mobility Management Entity",
+    "vendor": "Ericsson",
+    "status": "Healthy",
+    "location": "Datacenter-East"
+  }
+]

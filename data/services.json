@@ -1,0 +1,20 @@
+[
+  {
+    "service_id": "SRV-MOB-DATA",
+    "name": "Mobile Data",
+    "tier": "Tier-1",
+    "sla_availability": 99.999
+  },
+  {
+    "service_id": "SRV-VOLTE",
+    "name": "VoLTE Voice",
+    "tier": "Tier-1",
+    "sla_availability": 99.999
+  },
+  {
+    "service_id": "SRV-IOT",
+    "name": "Enterprise IoT",
+    "tier": "Tier-2",
+    "sla_availability": 99.95
+  }
+]

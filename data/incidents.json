@@ -1,0 +1,262 @@
+[
+  {
+    "incident_id": "INC-2026-0147",
+    "severity": "SEV-1",
+    "title": "Packet Core Latency Spike",
+    "service": "Mobile Data",
+    "domain": "Packet Core",
+    "element_id": "UPF-03",
+    "start_time": "2026-10-06T14:20:00Z",
+    "end_time": "2026-10-06T15:07:00Z",
+    "status": "Open",
+    "impact": {
+      "estimated_affected_sessions": 3200000,
+      "estimated_exposure_usd": 146968,
+      "duration_minutes": 47
+    },
+    "metrics_snapshot": {
+      "latency_ms": 487,
+      "baseline_latency_ms": 103,
+      "packet_loss_pct": 1.8,
+      "session_failure_pct": 2.4,
+      "cpu_utilization_pct": 92.4
+    },
+    "correlation_confidence": 87,
+    "evidence_completeness": 92,
+    "probable_cause": "Resource constraint in UPF processing layer"
+  },
+  {
+    "incident_id": "INC-2026-0149",
+    "severity": "SEV-1",
+    "title": "MME Signalling Storm (Attach Reject)",
+    "service": "Mobile Data / VoLTE",
+    "domain": "Control Core",
+    "element_id": "MME-02",
+    "start_time": "2026-10-07T06:15:00Z",
+    "end_time": null,
+    "status": "Open",
+    "impact": {
+      "estimated_affected_sessions": 1800000,
+      "estimated_exposure_usd": 210000,
+      "duration_minutes": 115
+    },
+    "metrics_snapshot": {
+      "latency_ms": 45,
+      "baseline_latency_ms": 40,
+      "packet_loss_pct": 0.1,
+      "session_failure_pct": 34.5,
+      "cpu_utilization_pct": 99.8
+    },
+    "correlation_confidence": 94,
+    "evidence_completeness": 98,
+    "probable_cause": "Control plane resource exhaustion due to rogue IoT device retry flood"
+  },
+  {
+    "incident_id": "INC-2026-0150",
+    "severity": "SEV-1",
+    "title": "HSS Diameter Link Failure",
+    "service": "Authentication",
+    "domain": "Subscriber Data Management",
+    "element_id": "HSS-01",
+    "start_time": "2026-10-07T07:10:00Z",
+    "end_time": null,
+    "status": "Open",
+    "impact": {
+      "estimated_affected_sessions": 4500000,
+      "estimated_exposure_usd": 540000,
+      "duration_minutes": 60
+    },
+    "metrics_snapshot": {
+      "latency_ms": 1200,
+      "baseline_latency_ms": 15,
+      "packet_loss_pct": 0.0,
+      "session_failure_pct": 100.0,
+      "cpu_utilization_pct": 25.0
+    },
+    "correlation_confidence": 99,
+    "evidence_completeness": 100,
+    "probable_cause": "SCTP association failure on primary and secondary S6a interfaces"
+  },
+  {
+    "incident_id": "INC-2026-0151",
+    "severity": "SEV-2",
+    "title": "VoLTE SIP 503 Service Unavailable",
+    "service": "VoLTE Voice",
+    "domain": "IMS Core",
+    "element_id": "IMS-CSCF-01",
+    "start_time": "2026-10-07T07:45:00Z",
+    "end_time": null,
+    "status": "Open",
+    "impact": {
+      "estimated_affected_sessions": 420000,
+      "estimated_exposure_usd": 65000,
+      "duration_minutes": 25
+    },
+    "metrics_snapshot": {
+      "latency_ms": 250,
+      "baseline_latency_ms": 30,
+      "packet_loss_pct": 0.5,
+      "session_failure_pct": 12.4,
+      "cpu_utilization_pct": 88.0
+    },
+    "correlation_confidence": 82,
+    "evidence_completeness": 85,
+    "probable_cause": "P-CSCF internal queue backup delaying SIP Invite processing"
+  },
+  {
+    "incident_id": "INC-2026-0152",
+    "severity": "SEV-2",
+    "title": "PGW GTP-C Tunnel Setup Failures",
+    "service": "Mobile Data",
+    "domain": "Packet Core",
+    "element_id": "PGW-01",
+    "start_time": "2026-10-07T05:30:00Z",
+    "end_time": null,
+    "status": "Open",
+    "impact": {
+      "estimated_affected_sessions": 850000,
+      "estimated_exposure_usd": 92000,
+      "duration_minutes": 160
+    },
+    "metrics_snapshot": {
+      "latency_ms": 140,
+      "baseline_latency_ms": 45,
+      "packet_loss_pct": 0.1,
+      "session_failure_pct": 6.8,
+      "cpu_utilization_pct": 72.0
+    },
+    "correlation_confidence": 76,
+    "evidence_completeness": 90,
+    "probable_cause": "IP address pool exhaustion for specific APN"
+  },
+  {
+    "incident_id": "INC-2026-0153",
+    "severity": "SEV-1",
+    "title": "BGP Route Flap causing Core Isolation",
+    "service": "All Services",
+    "domain": "IP Transport",
+    "element_id": "Core-RTR-02",
+    "start_time": "2026-10-07T08:00:00Z",
+    "end_time": null,
+    "status": "Open",
+    "impact": {
+      "estimated_affected_sessions": 2100000,
+      "estimated_exposure_usd": 310000,
+      "duration_minutes": 10
+    },
+    "metrics_snapshot": {
+      "latency_ms": 850,
+      "baseline_latency_ms": 12,
+      "packet_loss_pct": 45.0,
+      "session_failure_pct": 85.0,
+      "cpu_utilization_pct": 95.0
+    },
+    "correlation_confidence": 97,
+    "evidence_completeness": 95,
+    "probable_cause": "Hardware fault on 100G line card triggering BGP reconvergence loop"
+  },
+  {
+    "incident_id": "INC-2026-0154",
+    "severity": "SEV-2",
+    "title": "DNS Resolution Timeout Surge",
+    "service": "Mobile Data",
+    "domain": "Value Added Services",
+    "element_id": "DNS-PRI-01",
+    "start_time": "2026-10-07T07:20:00Z",
+    "end_time": null,
+    "status": "Open",
+    "impact": {
+      "estimated_affected_sessions": 1200000,
+      "estimated_exposure_usd": 85000,
+      "duration_minutes": 50
+    },
+    "metrics_snapshot": {
+      "latency_ms": 3200,
+      "baseline_latency_ms": 45,
+      "packet_loss_pct": 0.0,
+      "session_failure_pct": 2.1,
+      "cpu_utilization_pct": 100.0
+    },
+    "correlation_confidence": 88,
+    "evidence_completeness": 92,
+    "probable_cause": "DDoS amplification attempt saturating DNS query buffers"
+  },
+  {
+    "incident_id": "INC-2026-0155",
+    "severity": "SEV-2",
+    "title": "Microwave Backhaul Fade (High BER)",
+    "service": "RAN / Mobile Data",
+    "domain": "Transport Network",
+    "element_id": "MW-Link-88",
+    "start_time": "2026-10-07T06:45:00Z",
+    "end_time": null,
+    "status": "Open",
+    "impact": {
+      "estimated_affected_sessions": 45000,
+      "estimated_exposure_usd": 12000,
+      "duration_minutes": 85
+    },
+    "metrics_snapshot": {
+      "latency_ms": 180,
+      "baseline_latency_ms": 25,
+      "packet_loss_pct": 8.5,
+      "session_failure_pct": 15.0,
+      "cpu_utilization_pct": 40.0
+    },
+    "correlation_confidence": 91,
+    "evidence_completeness": 88,
+    "probable_cause": "Severe weather (heavy rainfall) causing multipath fading and adaptive modulation drop"
+  },
+  {
+    "incident_id": "INC-2026-0156",
+    "severity": "SEV-1",
+    "title": "RAN Regional Controller Outage",
+    "service": "Voice & Data",
+    "domain": "Radio Access",
+    "element_id": "RNC-East-01",
+    "start_time": "2026-10-07T07:55:00Z",
+    "end_time": null,
+    "status": "Open",
+    "impact": {
+      "estimated_affected_sessions": 980000,
+      "estimated_exposure_usd": 175000,
+      "duration_minutes": 15
+    },
+    "metrics_snapshot": {
+      "latency_ms": 0,
+      "baseline_latency_ms": 35,
+      "packet_loss_pct": 100.0,
+      "session_failure_pct": 100.0,
+      "cpu_utilization_pct": 0.0
+    },
+    "correlation_confidence": 99,
+    "evidence_completeness": 99,
+    "probable_cause": "Total loss of power to aggregation site (Dual PDU failure)"
+  },
+  {
+    "incident_id": "INC-2026-0157",
+    "severity": "SEV-2",
+    "title": "IoT Gateway MQTT Keepalive Drops",
+    "service": "Enterprise IoT",
+    "domain": "IoT Core",
+    "element_id": "IoT-SGW-04",
+    "start_time": "2026-10-07T05:00:00Z",
+    "end_time": null,
+    "status": "Open",
+    "impact": {
+      "estimated_affected_sessions": 3400000,
+      "estimated_exposure_usd": 45000,
+      "duration_minutes": 190
+    },
+    "metrics_snapshot": {
+      "latency_ms": 55,
+      "baseline_latency_ms": 50,
+      "packet_loss_pct": 0.5,
+      "session_failure_pct": 8.5,
+      "cpu_utilization_pct": 65.0
+    },
+    "correlation_confidence": 74,
+    "evidence_completeness": 81,
+    "probable_cause": "NAT translation table overflow dropping long-lived MQTT connections"
+  }
+]
