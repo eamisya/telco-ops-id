@@ -23,6 +23,5 @@ This repository represents "Portfolio 01 — Flagship" and bridges the gap betwe
 5. **AI Reasoning Layer**: "Evidence vs. Recommendation" engine calculating Evidence Completeness, Recommendation Confidence, Risk, and Approval routing.
 
 ## Documentation
-* [Architecture](docs/ARCHITECTURE.md)
-* [Implementation Plan (4-hour build)](docs/IMPLEMENTATION_PLAN.md)
-* [Antigravity Vibe Coding Prompts](docs/PROMPTS_FOR_ANTIGRAVITY.md)
+* [Architecture](ARCHITECTURE.md)
+* [Implementation Plan (4-hour build)](IMPLEMENTATION_PLAN.md)
