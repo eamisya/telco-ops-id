@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telco Operations Intelligence & Decision Platform</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <i class="fa-solid fa-satellite-dish brand-icon text-accent"></i>
+                <h1>TelcoOps OS</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" id="nav-cmd">
+                    <i class="fa-solid fa-chart-line"></i> Operations Command
+                </a>
+                <a href="#" class="nav-item" id="nav-inc">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i> Incident Intelligence
+                </a>
+                <a href="#" class="nav-item" id="nav-kpi">
+                    <i class="fa-solid fa-layer-group"></i> KPI Drilldown
+                </a>
+                <a href="#" class="nav-item" id="nav-ai">
+                    <i class="fa-solid fa-microchip"></i> Decision Briefs
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="avatar"><i class="fa-solid fa-user-tie"></i></div>
+                    <div class="details">
+                        <span class="name">Solution Architect</span>
+                        <span class="role">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-wrapper">
+            <!-- Header -->
+            <header class="topbar">
+                <div class="page-title">
+                    <h2 id="page-title-text">Operations Command View</h2>
+                    <span class="subtitle">Real-time network operational intelligence</span>
+                </div>
+                <div class="topbar-actions">
+                    <span id="network-health-badge" class="badge bg-surface text-muted">Analyzing Network...</span>
+                    <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
+                    <button class="icon-btn"><i class="fa-solid fa-gear"></i></button>
+                </div>
+            </header>
+
+            <!-- Dynamic Dashboard Content -->
+            <div class="content-area" id="dashboard-content">
+                <div class="loading-state">
+                    <i class="fa-solid fa-circle-notch fa-spin"></i>
+                    <p>Loading Operational Data and Evidence Packs...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Incident Intelligence Modal (Screen 2) -->
+    <div id="incident-modal" class="modal-overlay hidden">
+        <div class="modal-container" id="incident-modal-content">
+            <!-- Dynamic content injected here -->
+        </div>
+    </div>
+
+    <!-- Main Application Logic -->
+    <script src="app.js" type="module"></script>
+</body>
+</html>
